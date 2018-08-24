@@ -1,9 +1,10 @@
     
+    // var queryUrl = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=44.983758,-93.180473&radius=1500&type=restaurant&key=AIzaSyAUCRBjRZyAYWMlrjubm_7G1B5m6468KTc";    
       var map, infoWindow;
       function initMap() {
         map = new google.maps.Map(document.getElementById('map'), {
-          center: {lat: -34.397, lng: 150.644},
-          zoom: 6
+          center: {lat: 93.265, lng: 44.977},
+          zoom: 14
         });
         infoWindow = new google.maps.InfoWindow;
 
@@ -14,10 +15,16 @@
               lat: position.coords.latitude,
               lng: position.coords.longitude
             };
+            var marker = new google.maps.Marker({
+                position: pos,
+                title: "You are here"
+        
+              });
+              marker.setMap(map);
 
             infoWindow.setPosition(pos);
-            infoWindow.setContent('Location found.');
-            infoWindow.open(map);
+            infoWindow.setContent();
+            // infoWindow.open(map);
             map.setCenter(pos);
           }, function() {
             handleLocationError(true, infoWindow, map.getCenter());
@@ -35,7 +42,18 @@
                               'Error: Your browser doesn\'t support geolocation.');
         infoWindow.open(map);
       }
+
+     
+
+    //   $.ajax({
+    //     url: queryURL,
+    //     method: 'GET'
+    // })
+    // .done(function(response) {
+        
+
+    //     console.log(queryURL);
+
+    //     console.log(response);
     
-    <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAUCRBjRZyAYWMlrjubm_7G1B5m6468KTc&callback=initMap">
-    </script>
+    
