@@ -21,7 +21,12 @@
         
               });
               marker.setMap(map);
-
+            //create radius from a location bias from api
+            //pull restaurant from Query URL 
+            //create another geolocation for restaurant marker - drop marker
+            //confirm or deny restaurant location via button
+            //pull random restaurant from array Query URL if denied 
+            //poly line creates line between location and restaurant 
             infoWindow.setPosition(pos);
             infoWindow.setContent();
             // infoWindow.open(map);
