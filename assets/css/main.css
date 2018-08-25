@@ -6447,6 +6447,13 @@ body {
   background: #90a4ae;
   font-family: "Vidaloka", serif; }
 
+.nav-extended{
+background-image: url("../pics/headImg.png");
+background-repeat: no-repeat;
+background-position: right top;
+background-attachment: fixed;
+  }
+  
 .container {
   background: #f6b2b5; }
 
