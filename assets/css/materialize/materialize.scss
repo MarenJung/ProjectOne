@@ -1,0 +1,25 @@
+
+  @import "materialize/materialize.scss";
+  $primary-color: color("materialize-cyan", "lighten-2") !default;
+  $primary-color-light: color("materialize-cyan", "lighten-5") !default;
+  $primary-color-dark: color("materialzie-cyan", "lighten-1") !default;
+  $ff: ('Vidaloka', serif);
+  $secondary-color: color("cyan", "lighten-1") !default;
+  $third-color: color("blue-grey", "lighten-2") !default;
+  $success-color: color("green", "base") !default;
+  $error-color: color("red", "base") !default;
+
+  $link-color: color("light-blue", "darken-1") !default;
+
+  body{
+    background: $third-color;
+    font-family: $ff;
+  }
+  .container{
+    background: $primary-color-light;
+  }
+  
+  .input-field{
+    background: $primary-color-dark;
+    
+  }

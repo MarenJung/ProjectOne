@@ -73,6 +73,12 @@ function GetEntertainmentOptions() {
 }
 
 $(document).ready(function() {
+   
+    //Initialize carousel
+    $('.carousel.carousel-slider').carousel({
+        fullWidth: true
+    });
+
     //Get and store user location
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function(position) {
@@ -85,4 +91,5 @@ $(document).ready(function() {
             GetEntertainmentOptions();
         });
     }
+
 });
