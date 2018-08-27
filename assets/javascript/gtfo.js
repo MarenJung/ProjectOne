@@ -73,10 +73,16 @@ function GetEntertainmentOptions() {
                 item.addClass("carousel-item cyan darken-2 white-text center");
                 item.attr("href", hrefs[i % (hrefs.length)]);
 
+                var priceStr = event.priceMin ? `$${event.priceMin}` : "";
+
+                if (event.priceMax && (event.priceMax > event.priceMin)) {
+                    priceStr += ` - $${event.priceMax}`;
+                }
+
                 var title = $(`<h2>${event.name}</h2>`);
                 var date = $(`<p>Date: ${event.startDate}</p>`);
                 var time = $(`<p>Time: ${event.startTime}</p>`);
-                var price = $(`<p>Price: $${event.priceMin}${((event.priceMax) ? " - $" + event.priceMax : "")}</p>`);
+                var price = $(`<p>Price: ${priceStr ? priceStr : "???"}</p>`);
                 var venue = $(`<p>Venue: ${event.venue.name}</p>`);
                 var address = $(`<p>${event.venue.address}<br>${event.venue.city}, ${event.venue.state.stateCode} ${event.venue.postalCode}</p>`);
 
@@ -107,11 +113,12 @@ function GetEntertainmentOptions() {
 
 $(document).ready(function() {
    
-    //Initialize carousel
-    $('.carousel.carousel-slider').carousel({
-        fullWidth: true,
-        indicators: true
-    });
+    // IMPORTANT: ONLY INITIALIZE AFTER FETCHING DATA (See GetEntertainmentOptions() for example)
+    // //Initialize carousel
+    // $('.carousel.carousel-slider').carousel({
+    //     fullWidth: true,
+    //     indicators: true
+    // });
 
     //Get and store user location
     if (navigator.geolocation) {
