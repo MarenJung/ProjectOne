@@ -6460,9 +6460,9 @@ background-attachment: fixed;
 .input-field {
   background: #e62a31; }
 
-  .mapHere{
-    height:100px;
-    width:100%;
+.mapHere{
+    height: 100%;
+    width: 100%;
   }
 
 /*# sourceMappingURL=main.css.map */

@@ -16,6 +16,7 @@ window.onload = getMyLocation;
 
 
 var map; 
+var infoWindow;
 function getMyLocation() {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(displayLocation);
@@ -44,11 +45,13 @@ function showMap(latLng) {
 
     };
     map = new google.maps.Map(document.getElementById('mapHere'), mapOptions);
+    infoWindow = new google.maps.InfoWindow;
 }
 
 function addNearByPlaces(latLng) {
 
     var nearByService = new google.maps.places.PlacesService(map);
+    infoWindow = new google.maps.InfoWindow;
 
     var request = {
         location: latLng,
