@@ -18,8 +18,6 @@ function GetEntertainmentOptions() {
 
     var url = `${TM_API.EVENTS_URL}.json?size=${TM_API.LIMIT}&apikey=${TM_API.KEY}&latlong=${latlong}&radius=10&startDateTime=${startDateTime}&endDateTime=${endDateTime}`;
 
-    //window.open(url);//TEMP
-
     $.ajax({
         type: "GET",
         url: url
@@ -64,13 +62,10 @@ function GetEntertainmentOptions() {
                     }
                 }
 
-                //Create carousel items
-                // <div class="carousel-item cyan darken-2 white-text" href="#one!">
-                //     <div id="l1"></div>
-                // </div>
+                //Create carousel item
 
-                var item = $("#ticket");
-                item.addClass("cyan darken-2 white-text center");
+                var item = $('<div class="container">');
+                item.addClass("carousel-item cyan darken-2 white-text center");
                 item.attr("href", hrefs[i % (hrefs.length)]);
 
                 var priceStr = event.priceMin ? `$${event.priceMin}` : "";
@@ -79,21 +74,36 @@ function GetEntertainmentOptions() {
                     priceStr += ` - $${event.priceMax}`;
                 }
 
-                var title = $(`<h2>${event.name}</h2>`);
+                var title = $(`<div class="row"><h2 class="col s12">${event.name}</h2></div>`);
+
+                var detailRow = $('<div class="row"></div>');
+                var image = $(`<div class="col s6 right-align"><img src="${event.imageUrl}"></div>`);
+                var details = $('<div class="col s6 left-align" id="event-details">');
+
                 var date = $(`<p>Date: ${event.startDate}</p>`);
+                details.append(date);
+
                 var time = $(`<p>Time: ${event.startTime}</p>`);
-                var price = $(`<p>Price: ${priceStr ? priceStr : "???"}</p>`);
+                details.append(time);
+
+                if (priceStr) {
+                    var price = $(`<p>Price: ${priceStr}</p>`);
+                    details.append(price);
+                }
+
                 var venue = $(`<p>Venue: ${event.venue.name}</p>`);
+                details.append(venue);
+                
                 var address = $(`<p>${event.venue.address}<br>${event.venue.city}, ${event.venue.state.stateCode} ${event.venue.postalCode}</p>`);
+                details.append(address);
+
+                detailRow.append(image);
+                detailRow.append(details);
 
                 item.append(title);
-                item.append(date);
-                item.append(time);
-                item.append(price);
-                item.append(venue);
-                item.append(address);
+                item.append(detailRow);
                 
-                $("#ticket").append(item);
+                $("#eventCarousel").append(item);
 
                 if ($("#eventCarousel").hasClass("initialized")) {
                     $("#eventCarousel").removeClass("initialized");
@@ -114,11 +124,11 @@ function GetEntertainmentOptions() {
 $(document).ready(function() {
    
     // IMPORTANT: ONLY INITIALIZE AFTER FETCHING DATA (See GetEntertainmentOptions() for example)
-    //Initialize carousel
-    $('.carousel.carousel-slider').carousel({
-     fullWidth: true,
-      indicators: true
-    });
+    // //Initialize carousel
+    // $('.carousel.carousel-slider').carousel({
+    //     fullWidth: true,
+    //     indicators: true
+    // });
 
     //Get and store user location
     if (navigator.geolocation) {
