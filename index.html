@@ -9,18 +9,19 @@
     <link href="https://fonts.googleapis.com/css?family=Uncial+Antiqua" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Vidaloka" rel="stylesheet">
     <link href="assets/css/main.css" rel="stylesheet" type="text/css">
+    <style>
+    #mapHere{
+      height: 500px;
+      width: 100%;
+    }
+    </style>
     <title>Eat stuff. Do stuff.</title>
     <link rel='shortcut icon' href='assets/pics/fav.png' type='image/x-icon' />
 </head>
 <body>
-        <nav class="nav-extended">
+        <nav class="nav-extended resposive-img">
                 <div class="nav-wrapper ">
                   <img src="assets/pics/food.png" class="brand-logo resposive-img" alt="Brand icon">
-                  <ul class="right hide-on-med-and-down">
-                    <li><a>A link</a></li>
-                    <li><a>A second link</a></li>
-                    <li><a>A third link</a></li>
-                  </ul>
                 </div>
                 <div class="nav-content center-align">
                   <span class="nav-title  center-align">Eat stuff. Do stuff.</span>
@@ -31,8 +32,10 @@
               </nav>
 <div class="container cyan lighten-3">
     <div class="row ">
-            <div class="col12 center-align">
-
+            <div class="col12 center center-align">
+             
+                <div class="mapHere center center-align" id="mapHere"></div>
+<!-- 
               <div class="carousel carousel-slider center">
                 <div class="carousel-fixed-item center">
                   <a class="btn waves-effect white grey-text darken-text-2" id="foodLocation">Go Here</a>
@@ -66,12 +69,12 @@
                 </div>
                 <div class="carousel-item cyan accent-3 white-text" href="#four!">
                   <div id=f10></div>
-                </div>
+                </div> -->
                 </div>
               <div class="row ">
                 <div class="col12 center-align">
-    
-                  <div class="carousel carousel-slider center">
+                    <div id="ticket" class="ticket"></div>
+                  <!-- <div class="carousel carousel-slider center">
                     <div class="carousel-fixed-item center">
                       <a class="btn waves-effect white grey-text darken-text-2" id="eventLocation">Go Here</a>
                     </div>
@@ -102,10 +105,12 @@
                       <div id="l9"></div>
                     </div>
                     <div class="carousel-item cyan accent-3 white-text" href="#four!">
-                      <div id="l10"></div>
+                      <div id="l10"></div> -->
+                    </div>
                     </div>
 </body>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.js" integrity="sha256-59IZ5dbLyByZgSsRE3Z0TjDuX7e1AiqW5bZ8Bg50dsU=" crossorigin="anonymous"></script>
+<script src="assets/javascript/maps.js"></script>
 <script
   src="https://code.jquery.com/jquery-3.3.1.min.js"
   integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
@@ -113,7 +118,10 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
      
 <script src="assets/javascript/gtfo.js"></script>
-<script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAUCRBjRZyAYWMlrjubm_7G1B5m6468KTc&callback=initMap">
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAUCRBjRZyAYWMlrjubm_7G1B5m6468KTc&sensor=true&libraries=places"
+async defer>
 </script>
+<!-- <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAUCRBjRZyAYWMlrjubm_7G1B5m6468KTc&callback=initMap">
+</script> -->
 </html>
