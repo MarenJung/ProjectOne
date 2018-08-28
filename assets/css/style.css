@@ -1,3 +1,7 @@
 #eventCarousel .carousel-item {
     padding-bottom: 50px;
 }
+
+.event-image {
+    height: 150px;
+}
