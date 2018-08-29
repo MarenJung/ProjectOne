@@ -77,13 +77,13 @@ function GetEntertainmentOptions() {
                 var title = $(`<div class="row"><h2 class="col s12">${event.name}</h2></div>`);
 
                 var detailRow = $('<div class="row"></div>');
-                var image = $(`<div class="col s6 right-align"><img src="${event.imageUrl}"></div>`);
-                var details = $('<div class="col s6 left-align" id="event-details">');
+                var image = $(`<div class="col s6 right-align"><img class="event-image" src="${event.imageUrl}"></div>`);
+                var details = $('<div class="col s6 left-align" class="event-details">');
 
-                var date = $(`<p>Date: ${event.startDate}</p>`);
+                var date = $(`<p>Date: ${moment(event.startDate, "YYYY-MM-DD").format("MM/DD/YY")}</p>`);
                 details.append(date);
 
-                var time = $(`<p>Time: ${event.startTime}</p>`);
+                var time = $(`<p>Time: ${moment(event.startTime, "HH:mm:ss").format("hh:mm A")}</p>`);
                 details.append(time);
 
                 if (priceStr) {
